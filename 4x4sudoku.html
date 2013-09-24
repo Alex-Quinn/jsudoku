@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<title>
+    4x4 Sudoku!
+</title>
+
+<head>
+<style>
+div.ctr_panel
+{
+    width: 500px;
+    height: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+    font-family: helvetica;
+}
+div.menu
+{
+    width: 400px;
+    height: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    overflow: hidden;
+}
+table
+{
+    width: 400px;
+    height: 400px;
+    margin-left: auto; 
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 2px solid black;
+    text-align: center;
+    table-layout: fixed;
+}
+td
+{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+td.unassigned
+{
+    font-size: 240%;
+}
+td.assigned
+{
+    font-size: 350%;
+}
+a.linkedNumbers
+{
+    text-decoration: none;
+    color: black;
+    opacity: 0.4;
+}
+</style>
+</head>
+
+<!-- Load js scripts -->
+<script type="text/javascript" src="./sudoku.js"></script>
+<script type="text/javascript" src="./4x4sudoku.js"></script>
+
+<body onload="setup_board()">
+<div class="ctr_panel">
+<h1>
+4x4 Sudoku!
+</h1>
+<hr>
+<br>
+
+<!-- Create game board -->
+<table id="sudoku_board"> 
+    <tr>
+        <td id="cell1_1" bgcolor="#FF4F00"></td>
+        <td id="cell1_2" bgcolor="#FF4F00"></td>
+        <td id="cell2_1" bgcolor="#00AC6B"></td>
+        <td id="cell2_2" bgcolor="#00AC6B"></td>
+    </tr>
+    <tr>
+        <td id="cell1_3" bgcolor="#FF4F00"></td>
+        <td id="cell1_4" bgcolor="#FF4F00"></td>
+        <td id="cell2_3" bgcolor="#00AC6B"></td>
+        <td id="cell2_3" bgcolor="#00AC6B"></td>
+    </tr>
+    <tr>
+        <td id="cell3_1" bgcolor="#0C5DA5"></td>
+        <td id="cell3_2" bgcolor="#0C5DA5"></td>
+        <td id="cell4_1" bgcolor="#FF9500">></td>
+        <td id="cell4_2" bgcolor="#FF9500"></td>
+    </tr>
+    <tr>
+        <td id="cell3_3" bgcolor="#0C5DA5"></td>
+        <td id="cell3_4" bgcolor="#0C5DA5"></td>
+        <td id="cell4_2" bgcolor="#FF9500"></td>
+        <td id="cell4_4" bgcolor="#FF9500"></td>
+    </tr>
+</table>
+
+
+<div width="400px" id="output"></div>
+
+<!-- Create undo button -->
+<div class="menu">
+    <br>
+    <div style="width: 200px; float: left; text-align: left;">
+        Hints <input type="checkbox" name="hints" id="hints" onchange="add_hints()">
+    </div>
+    <div style="width: 200px; float: right; text-align: right;">
+        <button type="reset" align="right" onclick="undo()">Undo</button>
+        <button type="reset" align="right" onclick="setup_board()">Reset</button>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
